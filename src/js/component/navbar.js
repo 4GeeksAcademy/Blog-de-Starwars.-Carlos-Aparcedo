@@ -1,24 +1,35 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
-
+import { Context } from "../store/appContext";
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3 p-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Starwars</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-				<div class="nav-item dropdown">
-					<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"><i class="fa fa-heart"></i></button>
-					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</div>
-				</Link>
-			</div>
-		</nav>
-	);
+    const{store,actions} = useContext (Context)
+    return (
+        <nav className="navbar bg-body-tertiary">
+            <div className="container-fluid">
+                <Link to="/">
+                    <a className="navbar-brand"></a>
+                    <img className="width-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png"></img>
+                </Link>
+                {/* <Link to="/planetas">
+                    <a className="navbar-brand">Planetas</a>
+                </Link> */}
+                <div className="ml-auto">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            favoritos {store.favoritos.length}
+                        </button>
+                        <ul class="dropdown-menu">
+                            {store.favoritos.map((element)=>{
+                                return(
+                                    <li><a class="dropdown-item" href="#">{element}</a>
+                                    <button onClick={()=> actions.removeFavorites(element)}>x</button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
 };

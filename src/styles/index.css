@@ -1,3 +1,13 @@
 /* 
     General Styles
 */
+/* crear una clase con el wiht de la carta 18 rem */
+.cardT{
+    width: 18rem;
+}
+.width-img{
+    width: 100px;
+}
+.color{
+    color: red;
+}
