@@ -20,17 +20,18 @@ export const Home = () => {
     return (
         <div className="mt-5">
             <h1 className="text-danger m-3">Characters</h1>
-            <ul className="list-group d-flex flex-row flex-wrap" id="contact-list">
-                {store.listCharacter.map((item) => (<Character key={item.uid} id={item.uid} name={item.name} />))}
-            </ul>
+            <spam className="list-group d-flex flex-row flex-wrap" id="contact-list">
+                {store.listCharacter.map((item) => ( <div><Character key={item.uid} id={item.uid} name={item.name} /></div>) ) }
+            </spam>
+            
             <h1 className="text-danger m-3">Planets</h1>
             <span className="list-group d-flex flex-row flex-wrap" id="contact-list">
-                {store.listPlanet.map((item) => (<Planet id={item.uid} name={item.name} />))}
+                {store.listPlanet.map((item) => (<div key={item.uid}><Planet id={item.uid} name={item.name} /></div>) ) }
             </span>
             <h1 className="text-danger m-3">Vehicles</h1>
-            <ul className="list-group pull-down d-flex flex-wrap d-inline-flex flex-row m-3" id="contact-list">
-                {store.listVehicle.map((item) => (<Vehicle id={item.uid} name={item.name} />))}
-            </ul>
+            <spam className="list-group pull-down d-flex flex-wrap d-inline-flex flex-row m-3" id="contact-list">
+                {store.listVehicle.map((item) => ( <div key={item.uid}><Vehicle id={item.uid} name={item.name} /></div> ) ) }
+            </spam>
 
         </div>
     )
