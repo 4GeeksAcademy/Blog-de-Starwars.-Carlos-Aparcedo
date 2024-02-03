@@ -1,4 +1,6 @@
 /* 
     General Styles
 */
-/* crear una clase con el wiht de la carta 18 rem */
+.width-img{
+    width: 100px;
+}
